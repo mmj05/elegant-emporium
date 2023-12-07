@@ -1,3 +1,5 @@
+import axios from "axios";
+
 // Define action types
 export const enum ProductsActionTypes {
     FETCH_PRODUCTS_REQUEST = 'FETCH_PRODUCTS_REQUEST',
@@ -35,3 +37,16 @@ export const fetchProductsFailure = (error: string) => ({
         error,
     },
 });
+
+export const fetchProducts = () => async (dispatch: (arg0: { type: ProductsActionTypes; payload?: { products: Product[]; } | { error: string; }; }) => void) => {
+    dispatch(fetchProductsRequest());
+  
+    try {
+      const response = await axios.get("http://localhost:8080/api/products");
+      const products = response.data;
+  
+      dispatch(fetchProductsSuccess(products));
+    } catch (error: any) {
+      dispatch(fetchProductsFailure(error.message));
+    }
+  };
