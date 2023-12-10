@@ -1,0 +1,24 @@
+/* Footer.css */
+.footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+  }
+  
+  .footer h4 {
+    color: #333;
+  }
+  
+  .footer ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .footer ul li a {
+    color: #6c757d;
+    text-decoration: none;
+  }
+  
+  .footer .fab {
+    margin: 0 10px;
+    color: #6c757d;
+  }
