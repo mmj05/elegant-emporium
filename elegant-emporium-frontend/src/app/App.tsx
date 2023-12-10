@@ -1,9 +1,9 @@
-import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from '../components/pages/Home';
 import Header from '../components/common/Header';
+import Footer from '../components/common/Footer';
 
 const App: React.FC = () => {
   return (
@@ -13,6 +13,7 @@ const App: React.FC = () => {
         <Switch>
           <Route path="/" exact component={Home} />
         </Switch>
+        <Footer />
       </Container>
     </Router>
   );
