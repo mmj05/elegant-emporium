@@ -1,54 +1,96 @@
-// src/components/product/ProductGrid.tsx
-import React from 'react';
-import './ProductGrid.css'; // Import your custom styles
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { Carousel, Row, Col } from 'react-bootstrap';
+import ProductCard from './ProductCard'; 
 
 const ProductGrid: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const products = [
-    'Product 1', 'Product 2', 'Product 3', 'Product 4',
-    'Product 5', 'Product 6', 'Product 7', 'Product 8',
-  ];
+const sampleProducts = [
+    {
+        id: 1,
+        name: "Product 1",
+        price: 10.99,
+        image: "product1.jpg",
+    },
+    {
+        id: 2,
+        name: "Product 2",
+        price: 19.99,
+        image: "product2.jpg",
+    },
+    {
+        id: 3,
+        name: "Product 3",
+        price: 14.99,
+        image: "product3.jpg",
+    },
+    {
+        id: 4,
+        name: "Product 4",
+        price: 8.99,
+        image: "product4.jpg",
+    },
+    {
+        id: 5,
+        name: "Product 5",
+        price: 12.99,
+        image: "product5.jpg",
+    },
+    {
+        id: 6,
+        name: "Product 6",
+        price: 9.99,
+        image: "product6.jpg",
+    },
+    {
+        id: 7,
+        name: "Product 7",
+        price: 16.99,
+        image: "product7.jpg",
+    },
+    {
+        id: 8,
+        name: "Product 8",
+        price: 11.99,
+        image: "product8.jpg",
+    },
+];
+  const [products, setProducts] = useState(sampleProducts); // Replace with your products data
+  const [index, setIndex] = useState(0);
 
-  const renderProductCard = (productName: string) => (
-    <div className="product-card" key={productName}>
-      <img className="product-image" src="https://via.placeholder.com/150" alt={productName} />
-      <div className="product-info">
-        <h4>{productName}</h4>
-        <p>Product description goes here.</p>
-        <button className="add-to-cart">Add to Cart</button>
-      </div>
-    </div>
-  );
-
-  const handlePrevClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : products.length - 1));
-  };
-
-  const handleNextClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex < products.length - 1 ? prevIndex + 1 : 0));
+  const handleSelect = (selectedIndex: number, e: any) => {
+    setIndex(selectedIndex);
   };
 
   return (
-    <div className="product-grid">
-      <div className="carousel">
-        <div className="carousel-inner">
-          <div className={`carousel-item ${currentIndex === 0 ? 'active' : ''}`}>
-            <div className="product-row">
-              {products.slice(0, 4).map(renderProductCard)}
-            </div>
-          </div>
-          <div className={`carousel-item ${currentIndex === 1 ? 'active' : ''}`}>
-            <div className="product-row">
-              {products.slice(4, 8).map(renderProductCard)}
-            </div>
-          </div>
-        </div>
-        <button className="prev-button" onClick={handlePrevClick}>Previous</button>
-        <button className="next-button" onClick={handleNextClick}>Next</button>
-      </div>
-    </div>
+    <Carousel variant='dark' activeIndex={index} onSelect={handleSelect}>
+      <Carousel.Item>
+      <Row md='2'>
+          {products.slice(0, 3).map((product, i) => (
+            <Col key={i}>
+              <ProductCard product={product} />
+            </Col>
+          ))}
+        </Row>
+      </Carousel.Item>
+      <Carousel.Item>
+        <Row>
+          {products.slice(3, 6).map((product, i) => (
+            <Col key={i}>
+              <ProductCard product={product} />
+            </Col>
+          ))}
+        </Row>
+      </Carousel.Item>
+      <Carousel.Item>
+        <Row>
+          {products.slice(6, 8).map((product, i) => (
+            <Col key={i}>
+              <ProductCard product={product} />
+            </Col>
+          ))}
+        </Row>
+      </Carousel.Item>
+    </Carousel>
   );
 };
 
