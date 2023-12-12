@@ -1,44 +1,37 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import './Footer.css';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="mt-5 footer">
-    <Container>
-      <Row>
-        <Col md={4}>
-        <h4>CUSTOMER SERVICE</h4>
-            <ul>
-              <li><Link to="/customer-service">Customer Service</Link></li>
-              <li><Link to="/shipping">Shipping</Link></li>
-              <li><Link to="/returns">Returns</Link></li>
-              <li><Link to="/gift-cards">Buy gift cards</Link></li>
-              <li><Link to="/size-charts">Size charts</Link></li>
+    <footer className="mt-5 bg-dark text-white py-3">
+      <Container>
+        <Row>
+          <Col md={4}>
+            <h4 className="text-uppercase">Customer Service</h4>
+            <ul className="list-unstyled">
+              <li><Link to="/customer-service" className="text-white">Customer Service</Link></li>
+              <li><Link to="/shipping" className="text-white">Shipping</Link></li>
+              <li><Link to="/returns" className="text-white">Returns</Link></li>
+              <li><Link to="/gift-cards" className="text-white">Buy gift cards</Link></li>
+              <li><Link to="/size-charts" className="text-white">Size charts</Link></li>
             </ul>
-        </Col>
-        <Col md={4}>
-          <h4>Quick Links</h4>
-          <ul>
-            <li><Link to="/contact">Contact Us</Link></li>
-            <li><Link to="/faqs">FAQs</Link></li>
-            <li><Link to="/terms">Terms & Conditions</Link></li>
-            <li><Link to="/privacy">Privacy Policy</Link></li>
-          </ul>
-        </Col>
-        <Col md={4}>
-          <h4>Contact Information</h4>
-          <p>Email: info@example.com</p>
-          <p>Phone: +1 (123) 456-7890</p>
-          <div>
-            <i className="fab fa-facebook"></i>
-            <i className="fab fa-twitter"></i>
-            <i className="fab fa-instagram"></i>
-          </div>
-        </Col>
-      </Row>
-    </Container>
-  </footer>
+          </Col>
+          <Col md={4}>
+            <h4 className="text-uppercase">Quick Links</h4>
+            <ul className="list-unstyled">
+              <li><Link to="/contact" className="text-white">Contact Us</Link></li>
+              <li><Link to="/faqs" className="text-white">FAQs</Link></li>
+              <li><Link to="/terms" className="text-white">Terms & Conditions</Link></li>
+              <li><Link to="/privacy" className="text-white">Privacy Policy</Link></li>
+            </ul>
+          </Col>
+          <Col md={4}>
+            <h4 className="text-uppercase">Contact Information</h4>
+            <p>Email: info@example.com</p>
+          </Col>
+        </Row>
+      </Container>
+    </footer>
   );
 };
 
