@@ -1,14 +1,10 @@
-// src/app/store.ts
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import productReducer from '../features/product/productSlice';
-import thunkMiddleware from 'redux-thunk';
 
 const store = configureStore({
   reducer: {
     product: productReducer,
-    // Add other reducers as needed
   },
-  middleware: [thunkMiddleware],
 });
 
 export type RootState = ReturnType<typeof store.getState>;
