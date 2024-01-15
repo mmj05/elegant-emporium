@@ -38,7 +38,7 @@ export const fetchProducts = createAsyncThunk(
     async () => {
         try {
             const response = await axios.get(
-                'http://localhost:8080/api/products'
+                'http://localhost:8080/products'
             );
             const products = response.data._embedded.products;
             console.log(products);
