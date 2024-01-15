@@ -27,9 +27,6 @@ public class User {
     @Column(name = "password", length = 60, nullable = false)
     private String password;
 
-    @Column(name = "enabled")
-    private boolean enabled;
-
     public User() {
     }
 
@@ -39,6 +36,5 @@ public class User {
         this.email = email;
         this.role = role;
         this.password = password;
-        this.enabled = enabled;
     }
 }
